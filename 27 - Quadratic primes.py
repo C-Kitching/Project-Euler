@@ -70,7 +70,7 @@ def count_consecutive_primes(a, b):
 
 
 # precompute all primes
-is_prime, primes = sieve(10000000)
+is_prime, primes = sieve(100000)
     
 # read N
 N = int(input())
@@ -81,6 +81,15 @@ max_a, max_b = 0, 0
 # loop over all a and b values
 for a in range(-N, N+1):
     for b in primes:
+
+        # skip the cases where b is larger than N
+        # also consider n = 1 => 1+a+b=p
+        # we know b is prime, the only even prime is 2
+        # so if b=2 then a must be even
+        # if b!= 2 then a must be odd
+        # so we can skip all cases where these conditions don't hold
+        if b > N or (b==2 and a%2!= 0) or (b!=2 and a%2==0):
+            continue
         
         count_primes = count_consecutive_primes(a,b)
         
