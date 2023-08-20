@@ -12,6 +12,7 @@
 # We repeat like this to build up 4062135, the 2982nd permutation of the numbers 0-6
 
 word = "abcdefghijklm"
+word = "0123456789"
 
 # convert number from decimal to factorial form
 def convert_decimal_to_factorial_form(N):
